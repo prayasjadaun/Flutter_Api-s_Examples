@@ -21,6 +21,7 @@ class _SecondApiState extends State<SecondApi> {
       for (Map i in data) {
         PhotosModel photosModel = PhotosModel(
             title: i['title'],
+            id: i['id'],
             url: i['url'],
             albumId: i['albumId'],
             thumbnailUrl: i['thumbnailUrl']);
@@ -51,7 +52,11 @@ class _SecondApiState extends State<SecondApi> {
                             NetworkImage(snapshot.data![index].url.toString()),
                       ),
                       subtitle: Text(snapshot.data![index].title.toString()),
-                      title: Text('Notes Id${snapshot.data![index].id}'),
+                      title: Text(
+                        'Id: ${snapshot.data![index].id}',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 18),
+                      ),
                     );
                   });
                 }),
