@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_rest_api/components/reusableRow.dart';
 import 'package:flutter_rest_api/models/user_model.dart';
 
 import "package:http/http.dart" as http;
@@ -49,10 +50,24 @@ class _UserScreenState extends State<UserScreen> {
                     itemCount: userList.length,
                     itemBuilder: (context, index) {
                       return Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [Text(userList[index].name.toString())],
-                        ),
+                        child: Column(children: [
+                          ReusableRow(
+                              title: "Name",
+                              value: snapshot.data![index].name.toString()),
+                          ReusableRow(
+                              title: "Username",
+                              value: snapshot.data![index].username.toString()),
+                          ReusableRow(
+                              title: "Email",
+                              value: snapshot.data![index].email.toString()),
+                          ReusableRow(
+                            title: "Address",
+                            value:
+                                snapshot.data![index].address!.city.toString() +
+                                    snapshot.data![index].address!.zipcode
+                                        .toString(),
+                          )
+                        ]),
                       );
                     });
               }
