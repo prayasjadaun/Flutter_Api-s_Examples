@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rest_api/screens/products_screen.dart';
 import 'package:flutter_rest_api/screens/second_api.dart';
+import 'package:flutter_rest_api/screens/signup_screen.dart';
 import 'package:flutter_rest_api/screens/user_screen.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: ProductsScreen(),
+      home: SignupScreen(),
     );
   }
 }

@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   http:
+  image_picker:
+  modal_progress_hud_nsn: ^0.5.1
 
 
   # The following adds the Cupertino Icons font to your application.

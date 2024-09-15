@@ -28,7 +28,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products API'),
+        title: const Text('Products API'),
       ),
       body: Column(
         children: [
@@ -55,21 +55,26 @@ class _ProductsScreenState extends State<ProductsScreen> {
                               ),
                             ),
                             Container(
+                              padding: const EdgeInsets.all(10.0),
                               height: MediaQuery.of(context).size.height * .3,
-                              width: MediaQuery.of(context).size.width * 1,
+                              width: MediaQuery.of(context).size.width * 10,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemCount: snapshot
                                       .data!.data![index].images!.length,
                                   itemBuilder: (context, position) {
                                     return Container(
+                                      padding:
+                                          const EdgeInsets.only(right: 15.0),
+                                      margin: const EdgeInsets.only(right: 10),
                                       height:
                                           MediaQuery.of(context).size.height *
                                               .25,
-                                      width: MediaQuery.of(context).size.width *
-                                          .5,
+                                      width:
+                                          MediaQuery.of(context).size.width * 1,
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
+                                              fit: BoxFit.cover,
                                               image: NetworkImage(snapshot
                                                   .data!
                                                   .data![index]
@@ -81,9 +86,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                     );
                                   }),
                             ),
-                            Icon(snapshot.data!.data![index].inWishlist! == true
-                                ? Icons.favorite
-                                : Icons.favorite_outline),
+                            Icon(
+                                snapshot.data!.data![index].inWishlist! == false
+                                    ? Icons.favorite
+                                    : Icons.favorite_outline),
                           ],
                         );
                       });
